@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2025년 과학 기술 사건 30 | ScienceTimes 큐레이션</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800;900&display=swap');
+    body { 
+      font-family: 'Pretendard', sans-serif; 
+      background: #02050a; 
+      color: #fff; 
+      scroll-behavior: smooth;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+        url('https://www.transparenttextures.com/patterns/stardust.pattern');
+    }
+    .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
+    .gradient-text { background: linear-gradient(45deg,#60a5fa,#34d399,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .card-hover:hover { 
+      transform: translateY(-5px); 
+      border-color: rgba(96, 165, 250, 0.6); 
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); 
+      transition: all .3s ease; 
+    }
+    .chip { border: 1px solid rgba(255,255,255,0.1); background: rgba(59, 130, 246, 0.1); }
+    .tab-active { border-color: #3b82f6; background: rgba(59, 130, 246, 0.3); }
+    
+    #topBtn { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    #topBtn.show { opacity: 1; visibility: visible; }
+    #keywordGuide { transition: max-height 0.5s ease-in-out, opacity 0.3s ease; overflow: hidden; }
+    #keywordGuide.hidden-guide { max-height: 0; opacity: 0; pointer-events: none; margin-bottom: 0; }
+    #keywordGuide.show-guide { max-height: 500px; opacity: 1; margin-bottom: 2.5rem; }
+
+    @media (min-width: 1280px) {
+      .grid-5-cols { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <section class="relative min-h-[70vh] flex items-center justify-center text-center px-4">
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <p class="text-blue-400 font-bold tracking-[0.3em] uppercase mb-4 opacity-80">Science Archives 2025</p>
+      <h1 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+        2025년 <span class="gradient-text">과학 기술 사건 30</span>
+      </h1>
+      <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
+        카테고리로 탐색, 키워드로 검색해서 2025년 과학/기술 분야 지식을 둘러보세요!<br/>
+        카드를 클릭하시면 원문 기사로 이동합니다.
+      </p>
+
+      <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-4">
+        <a href="#content" class="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all font-bold shadow-[0_0_20px_rgba(37,99,235,0.6)]">
+          탐색 시작 <i class="fa-solid fa-rocket ml-2"></i>
+        </a>
+        <a href="#about" class="px-10 py-4 rounded-full glass hover:bg-blue-500/20 transition-all font-semibold border-blue-400/30">
+          About
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" class="py-12 px-6 max-w-[1700px] mx-auto">
+    <div class="glass rounded-3xl p-6 mb-10 border border-blue-500/20 shadow-2xl">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start" id="tabs"></div>
+        
+        <div class="flex items-center gap-3 w-full lg:w-auto">
+          <button onclick="toggleKeywordGuide()" class="whitespace-nowrap px-4 py-3 rounded-2xl glass border-blue-500/30 text-blue-300 text-sm hover:bg-blue-500/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-tags"></i> 제공하는 키워드 💡
+          </button>
+          <div class="relative w-full lg:w-96">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-blue-400"></i>
+            <input id="searchInput" class="w-full bg-blue-900/10 border border-blue-500/20 rounded-2xl py-3 pl-12 pr-4 outline-none focus:border-blue-500/60 transition text-blue-100 placeholder:text-blue-300/40" placeholder="사건명, 키워드 검색...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="keywordGuide" class="hidden-guide glass rounded-3xl p-8 border border-blue-500/20">
+      <h3 class="text-xl font-black mb-6 text-blue-400 flex items-center gap-2">
+        <i class="fa-solid fa-lightbulb"></i> 검색 가능한 주요 키워드 안내
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="text-sm text-gray-400">#생성형AI 🤖</div>
+        <div class="text-sm text-gray-400">#HBM4 💾</div>
+        <div class="text-sm text-gray-400">#아르테미스 🚀</div>
+        <div class="text-sm text-gray-400">#CRISPR 🧬</div>
+        <div class="text-sm text-gray-400">#액체생검 🩸</div>
+        <div class="text-sm text-gray-400">#6G통신 📶</div>
+        <div class="text-sm text-gray-400">#탄소포집 🌍</div>
+        <div class="text-sm text-gray-400">#현대차 🚗</div>
+        <div class="text-sm text-gray-400">#삼성전자 📱</div>
+        <div class="text-sm text-gray-400">#양자컴퓨팅 💻</div>
+        <div class="text-sm text-gray-400">#디지털트윈 👯</div>
+        <div class="text-sm text-gray-400">#스마트팜 🌿</div>
+      </div>
+    </div>
+
+    <div id="cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-4 xl:grid-5-cols gap-5"></div>
+
+    <div id="emptyState" class="hidden py-20 text-center">
+      <p class="text-xl text-blue-400">일치하는 사건이 없습니다.</p>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="glass rounded-[3rem] p-10 md:p-16 border border-blue-500/20 relative overflow-hidden shadow-inner">
+      <div class="absolute top-0 right-0 p-8 opacity-10 text-9xl"><i class="fa-solid fa-atom text-blue-400"></i></div>
+      
+      <h2 class="text-3xl md:text-4xl font-black mb-10">Data Curation <span class="text-blue-400">Context</span></h2>
+      <div class="space-y-8 relative z-10">
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-blue-400 underline decoration-blue-800 underline-offset-8">효율적인 지식 습득을 위한 설계</h3>
+          <p class="text-gray-400 leading-relaxed">
+            이 페이지는 파편화된 과학 기술 뉴스를 <strong>카테고리별 아카이브</strong>로 재구성하여 흐름을 놓치지 않도록 돕습니다. 
+            핵심 키워드 중심의 요약을 통해 기술적 통찰을 지원합니다.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-blue-500/10">
+          <div class="flex items-start gap-4">
+            <div class="text-blue-500 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+            <p class="text-gray-300">국가 기술 트렌드 및 글로벌 동향 반영</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="text-blue-500 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+            <p class="text-gray-300">현대차, 삼성전자 등 주요 기업 테크 리포트</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <a href="#content" class="inline-block px-8 py-3 bg-blue-700 text-white rounded-xl hover:bg-blue-600 transition shadow-lg font-bold">탐색 영역으로 복귀 <i class="fa-solid fa-arrow-up ml-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-16 text-center border-t border-blue-500/10 mt-20">
+    <p class="text-[11px] tracking-[0.3em] uppercase mb-4 text-blue-50/90 font-medium">
+      © 2026 Science Insight Curator | ScienceTimes 기반 자료 활용
+    </p>
+  <footer class="py-16 text-center text-blue-50 opacity-40">
+    <p class="text-sm tracking-widest uppercase">© 커리어 크루 진로동아리 3기 [눈 속의 꽃] | ScienceTimes 기사 기반</p>
+    <p class="text-[12px] tracking-wider text-blue-100">
+      Developed by 차은혜 (cozymatchachalattess@gmail.com) and 정지호 (jeongjiho1127@naver.com)
+    </p>
+  </footer>
+
+  <button id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" 
+          class="fixed bottom-10 right-10 w-14 h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center transition-all z-50 glass border-blue-400">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+<script>
+  const articles = [
+    { id:1, category:"AI·데이터", icon:"fa-brain", accent:"text-blue-400", title:"AI 기반 과학연구 자율화", date:"2025-12-22", keywords:["생성형AI","연구자율화"], desc:"AI가 실험 설계부터 가설 생성까지 과학 연구의 전 과정을 수행합니다.", url:"https://www.sciencetimes.co.kr/news/sn/261290" },
+    { id:2, category:"AI·데이터", icon:"fa-robot", accent:"text-cyan-400", title:"멀티 AI 자율제조 시스템", date:"2025-12-18", keywords:["디지털트윈","자율공정"], desc:"이차전지 제조 현장에서 AI가 장비 상태를 스스로 최적화합니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/249?nscvrgSn=261295" },
+    { id:3, category:"AI·데이터", icon:"fa-truck-medical", accent:"text-blue-300", title:"지능형 구급지원 플랫폼", date:"2025-12-31", keywords:["응급의료AI","ETRI"], desc:"음성 기록 및 환자 분류를 돕는 현장 밀착형 지능 시스템입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/251?nscvrgSn=261356" },
+    { id:4, category:"AI·데이터", icon:"fa-x-ray", accent:"text-sky-400", title:"신생아 질환 조기판독 AI", date:"2025-10-14", keywords:["의료AI","엑스레이분석"], desc:"엑스레이 분석을 통해 신생아 중환자 질환을 빠르게 발견합니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/251?nscvrgSn=260975" },
+    { id:5, category:"바이오·의료", icon:"fa-syringe", accent:"text-blue-400", title:"mRNA 치료제 부작용 억제", date:"2025-12-04", keywords:["mRNA","안전성향상"], desc:"단백질 생성 속도를 조절하여 부작용을 최소화하는 기술입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/251?nscvrgSn=261219" },
+    { id:6, category:"바이오·의료", icon:"fa-dna", accent:"text-cyan-400", title:"무증폭 크리스퍼 진단기술", date:"2025-12-12", keywords:["CRISPR","바이러스검출"], desc:"증폭 과정 없이 바이러스 RNA를 직접 검출하는 정밀 기술입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/250?nscvrgSn=261255" },
+    { id:7, category:"바이오·의료", icon:"fa-vial", accent:"text-sky-300", title:"치매 혈액 진단 마커 발견", date:"2025-06-13", keywords:["알츠하이머","조기진단"], desc:"혈액 속 특정 단백질로 알츠하이머병을 조기에 감별합니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/252?nscvrgSn=260430" },
+    { id:8, category:"에너지·소재", icon:"fa-battery-full", accent:"text-blue-500", title:"리튬금속전지 수명 연장", date:"2025-04-14", keywords:["차세대배터리","전해질기술"], desc:"리튬금속전지의 고질적 수명 문제를 해결한 전해질 개발 성과입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/250?nscvrgSn=260169" },
+    { id:9, category:"에너지·소재", icon:"fa-bolt", accent:"text-cyan-500", title:"실리콘 음극재 급속충전", date:"2025-12-08", keywords:["실리콘소재","초고속충전"], desc:"충전 속도와 용량을 동시에 잡은 차세대 리튬-실리콘 소재입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/247?nscvrgSn=261234" },
+    { id:10, category:"양자·통신", icon:"fa-satellite-dish", accent:"text-sky-500", title:"6G용 차세대 양자소자", date:"2025-12-31", keywords:["6G통신","테라헤르츠"], desc:"테라헤르츠 대역 신호 처리를 위한 양자 터널링 기술입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/249?nscvrgSn=261354" },
+    { id:11, category:"우주·천문", icon:"fa-star", accent:"text-blue-400", title:"루빈 천문대 정밀관측 개시", date:"2025-06-25", keywords:["우주관측","천문대영상"], desc:"세계 최대 관측 장비가 전하는 우주의 가장 정밀한 모습입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/252?nscvrgSn=260488" },
+    { id:12, category:"환경·농업", icon:"fa-leaf", accent:"text-cyan-400", title:"KIST 탄소포집 공정 혁신", date:"2025-06-24", keywords:["탄소중립","CCUS"], desc:"포집 효율을 40% 이상 높인 차세대 이산화탄소 흡수 공정입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/250?nscvrgSn=260480" },
+    { id:13, category:"환경·농업", icon:"fa-seedling", accent:"text-sky-300", title:"스마트팜 토양 실시간 센서", date:"2025-10-23", keywords:["정밀농업","양분측정"], desc:"토양 상태를 즉시 측정하여 비료 사용을 최적화하는 센서입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/253?nscvrgSn=261020" },
+    { id:14, category:"미리보기·이슈", icon:"fa-handshake", accent:"text-blue-500", title:"국가 전략기술 민관협력", date:"2025-11-20", keywords:["전략기술","주권확보"], desc:"미래 핵심 기술 주권 확보를 위한 대정부 논의체입니다.", url:"https://www.sciencetimes.co.kr/news/sn/261100" },
+    { id:15, category:"에너지·소재", icon:"fa-car", accent:"text-cyan-500", title:"현대차 로보틱스 생태계", date:"2026-01-07", keywords:["현대차","휴머노이드"], desc:"제조 현장에 투입되는 차세대 아틀라스 로봇을 공개했습니다.", url:"https://www.industrynews.co.kr/news/articleView.html?idxno=76575" },
+    { id:16, category:"AI·데이터", icon:"fa-microchip", accent:"text-sky-500", title:"삼성전자 HBM4 기술선점", date:"2026-01-02", keywords:["삼성전자","AI반도체"], desc:"고대역폭 메모리 기술로 차세대 AI 서버 시장에 대응합니다.", url:"https://www.opinionnews.co.kr/news/articleView.html?idxno=130484" },
+    { id:17, category:"우주·천문", icon:"fa-user-astronaut", accent:"text-blue-400", title:"[미국] 아르테미스 유인비행", date:"2025-09-25", keywords:["NASA","달궤도임무"], desc:"50년 만의 인류 달 궤도 유인 비행 임무가 공식 확정되었습니다.", url:"https://www.newsspace.kr/news/article.html?no=9638" },
+    { id:18, category:"AI·데이터", icon:"fa-shield-halved", accent:"text-cyan-400", title:"글로벌 AI 안전협약 체결", date:"2025-04-02", keywords:["AI규제","국제협력"], desc:"AI 리스크 공동 관리를 위한 주요국 간의 대응 체계입니다.", url:"https://m.boannews.com/html/detail.html?idx=128430" },
+    { id:19, category:"우주·천문", icon:"fa-rocket", accent:"text-sky-300", title:"[미국] 민간 달착륙 임무성공", date:"2025-12-26", keywords:["민간우주","달표면탐사"], desc:"민간 기업 주도의 성공적인 달 표면 탐사 임무를 완수했습니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:20, category:"바이오·의료", icon:"fa-capsules", accent:"text-blue-500", title:"[미국] FDA 노안안약 승인", date:"2025-12-26", keywords:["노안치료","의료신약"], desc:"수술 없이 점안액만으로 시력을 개선하는 획기적 신약입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:21, category:"바이오·의료", icon:"fa-paw", accent:"text-cyan-500", title:"[영국] 동물실험 대체 로드맵", date:"2025-11-12", keywords:["연구윤리","3D모델링"], desc:"AI와 3D 모델링으로 동물 실험을 대체하는 공정 혁신입니다.", url:"https://www.chosun.com/economy/science/2025/11/12/YKI4MSPGWRCM7HPJYAD443JP4Y/" },
+    { id:22, category:"우주·천문", icon:"fa-flag", accent:"text-sky-500", title:"[유럽] 아리안6 발사 성공", date:"2025-06-04", keywords:["ESA","독자발사체"], desc:"유럽의 자력 우주 진출 능력을 입증한 차세대 발사체입니다.", url:"https://www.sciencetimes.co.kr/news/sn/260360" },
+    { id:23, category:"환경·농업", icon:"fa-cloud-sun", accent:"text-blue-400", title:"글로벌 탄소배출 감소 전환", date:"2025-01-16", keywords:["탄소피크","청정에너지"], desc:"세계 탄소 배출량이 정점을 찍고 올해 하락세로 반전되었습니다.", url:"https://www.sciencetimes.co.kr/news/sn/259826" },
+    { id:24, category:"바이오·의료", icon:"fa-dna", accent:"text-cyan-400", title:"헌팅턴병 희귀질환 치료제", date:"2025-12-26", keywords:["유전자치료","임상성공"], desc:"희귀 뇌 질환의 진행을 획기적으로 늦추는 치료 기술 성과입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:25, category:"양자·통신", icon:"fa-hospital", accent:"text-sky-300", title:"의료전용 양자컴퓨터 도입", date:"2025-12-26", keywords:["양자컴퓨팅","신약설계"], desc:"병원 내 설치되어 복잡한 단백질 구조 등을 초고속 분석합니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:26, category:"우주·천문", icon:"fa-water", accent:"text-blue-500", title:"엔셀라두스 생명체 단서포착", date:"2025-12-26", keywords:["토성위성","유기물발견"], desc:"얼음 위성에서 생명체 존재를 뒷받침하는 화학적 단서를 포착했습니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:27, category:"바이오·의료", icon:"fa-droplet", accent:"text-cyan-500", title:"췌장암 액체생검 상용화", date:"2025-12-26", keywords:["액체생검","암조기진단"], desc:"혈액 검사 한 번으로 췌장암을 높은 확률로 조기에 발견합니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/248?nscvrgSn=261328" },
+    { id:28, category:"AI·데이터", icon:"fa-house-signal", accent:"text-sky-500", title:"삼성 AI 기기 초연결 비전", date:"2026-01-06", keywords:["스마트홈","삼성AI"], desc:"수억 대의 기기를 하나로 잇는 통합 AI 경험입니다.", url:"https://biz.chosun.com/it-science/ict/2026/01/06/HJHHTS447ZEGLKNFAMJCGSBHH4/" },
+    { id:29, category:"에너지·소재", icon:"fa-battery-half", accent:"text-blue-400", title:"고효율 배터리 열관리 소재", date:"2025-12-08", keywords:["이차전지안전","소재혁신"], desc:"방전 시 발생하는 열을 획기적으로 차단하는 차세대 소재입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/247?nscvrgSn=261234" },
+    { id:30, category:"양자·통신", icon:"fa-microchip", accent:"text-cyan-400", title:"AI 융합 6G 원천기술 개발", date:"2025-12-31", keywords:["6G통신","AI알고리즘"], desc:"초연결 시대를 준비하기 위한 지능형 무선 통신 연구입니다.", url:"https://www.sciencetimes.co.kr/nscvrg/view/menu/247?nscvrgSn=261233" }
+  ];
+
+  const categories = [
+    { key: "전체", icon: "fa-border-all" },
+    { key: "AI·데이터", icon: "fa-brain" },
+    { key: "바이오·의료", icon: "fa-heart-pulse" },
+    { key: "에너지·소재", icon: "fa-car" },
+    { key: "우주·천문", icon: "fa-moon" },
+    { key: "환경·농업", icon: "fa-leaf" }
+  ];
+
+  let currentCategory = "전체";
+  let currentQuery = "";
+
+  function toggleKeywordGuide() {
+    const guide = document.getElementById('keywordGuide');
+    guide.classList.toggle('hidden-guide');
+    guide.classList.toggle('show-guide');
+  }
+
+  function renderTabs() {
+    const $tabs = document.getElementById("tabs");
+    $tabs.innerHTML = categories.map(c => {
+      const active = (c.key === currentCategory) ? "tab-active" : "hover:border-blue-400/20";
+      return `
+        <button class="tab ${active} px-5 py-2 rounded-xl text-sm font-medium transition-all glass" onclick="setCategory('${c.key}')">
+          <i class="fa-solid ${c.icon} mr-2 opacity-70"></i>${c.key}
+        </button>
+      `;
+    }).join("");
+  }
+
+  function renderCards() {
+    const $cards = document.getElementById("cards");
+    const $empty = document.getElementById("emptyState");
+    
+    const filtered = articles.filter(a => {
+      const matchCat = currentCategory === "전체" || a.category === currentCategory;
+      const haystack = (a.title + a.desc + a.keywords.join(" ")).toLowerCase();
+      const matchQuery = haystack.includes(currentQuery.toLowerCase());
+      return matchCat && matchQuery;
+    });
+
+    if (filtered.length === 0) {
+      $cards.innerHTML = "";
+      $empty.classList.remove("hidden");
+      return;
+    }
+    $empty.classList.add("hidden");
+
+    $cards.innerHTML = filtered.map(a => `
+      <a href="${a.url}" target="_blank" class="card-link glass rounded-2xl p-5 card-hover relative group flex flex-col justify-between border border-blue-500/10 h-full">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <i class="fa-solid ${a.icon} ${a.accent} text-xl"></i>
+            <span class="text-[10px] text-blue-400 font-mono tracking-tighter">${a.date}</span>
+          </div>
+          <h3 class="text-base font-bold leading-snug group-hover:text-blue-300 transition line-clamp-2 mb-2">${a.title}</h3>
+          <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed mb-4">${a.desc}</p>
+        </div>
+        <div class="flex flex-wrap gap-1 mt-auto">
+          ${a.keywords.map(k => `<span class="px-2 py-0.5 rounded bg-blue-900/20 text-[9px] text-blue-300 border border-blue-500/20">#${k}</span>`).join("")}
+        </div>
+      </a>
+    `).join("");
+  }
+
+  window.setCategory = (cat) => {
+    currentCategory = cat;
+    renderTabs();
+    renderCards();
+  };
+
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    currentQuery = e.target.value;
+    renderCards();
+  });
+
+  window.addEventListener("scroll", () => {
+    const btn = document.getElementById("topBtn");
+    if (window.scrollY > 500) btn.classList.add("show");
+    else btn.classList.remove("show");
+  });
+
+  renderTabs();
+  renderCards();
+</script>
+</body>
+</html>
